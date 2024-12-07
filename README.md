@@ -57,5 +57,4 @@ We welcome contributions to improve this project! If you'd like to help, please 
 Don’t Hesitate to Contribute! If you have ideas for new features or improvements, feel free to fork the repository, make your changes, and submit a pull request. 
 Your help is highly appreciated in making this project better
 
-This includes the **"Contributing"** section with a friendly invitation to contribute and a link to the `CONTRIBUTING.md` file for contribution guidelines.
 
