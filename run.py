@@ -1,10 +1,10 @@
 from flask import Flask, jsonify
-from WAF import WAF4Flask  # Import the monitoring logic
+from WAF import WAF4Flask  
 
 app = Flask(__name__)
 
-# Apply the monitoring middleware
-WAF4Flask.rusicadeWAF(app)
+
+WAF4Flask.rusicadeWAF(app, enable_ip_blocking=False)
 
 # Define Flask Routes
 @app.route('/')
