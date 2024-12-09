@@ -55,7 +55,11 @@ The application is built using the **Flask** framework, providing a simple web i
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/91bbe2e5-cc04-41ef-83cd-c4ec6e3de819">
 
 
-  
+
+# Used Dataset :
+If you reuse it, please mention us to avoid any problems
+https://www.kaggle.com/datasets/chouaibcher/sql-injection-dataset
+
 # Contributing
 We welcome contributions to improve this project! If you'd like to help, please refer to the  `CONTRIBUTING.md`  file for guidelines on how to contribute.
 Don’t Hesitate to Contribute! If you have ideas for new features or improvements, feel free to fork the repository, make your changes, and submit a pull request. 
