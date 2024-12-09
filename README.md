@@ -1,7 +1,7 @@
 # WAF-AI: Web Application Firewall with Artificial Intelligence
 ## Overview
 
-This repository contains a **Web Application Firewall (WAF)** that integrates **Artificial Intelligence** to detect and mitigate security threats in real-time, with a primary focus on SQL Injection and Cross-Site Scripting (XSS) attacks. The system utilizes pre-trained models to analyze HTTP traffic and automatically block potentially malicious requests.
+This repository contains a **Web Application Firewall (WAF)** that integrates **Artificial Intelligence** to detect and mitigate security threats in real-time. The system utilizes pre-trained models to analyze HTTP traffic and automatically block potentially malicious requests.
 
 The application is built using the **Flask** framework, providing a simple web interface for easy interaction with the firewall. The WAF uses custom tokenization methods and machine learning models to detect security threats and return appropriate responses when an attack is detected.
 
@@ -55,7 +55,12 @@ The application is built using the **Flask** framework, providing a simple web i
 <img width="959" alt="image" src="https://github.com/user-attachments/assets/91bbe2e5-cc04-41ef-83cd-c4ec6e3de819">
 
 
-  
+
+# Used Dataset :
+If you reuse it, please mention us to avoid any problems
+</br>
+https://www.kaggle.com/datasets/chouaibcher/sql-injection-dataset
+
 # Contributing
 We welcome contributions to improve this project! If you'd like to help, please refer to the  `CONTRIBUTING.md`  file for guidelines on how to contribute.
 Don’t Hesitate to Contribute! If you have ideas for new features or improvements, feel free to fork the repository, make your changes, and submit a pull request. 
