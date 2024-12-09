@@ -3,14 +3,10 @@
 
 This repository contains a **Web Application Firewall (WAF)** that integrates **Artificial Intelligence** to detect and mitigate security threats in real-time. The system utilizes pre-trained models to analyze HTTP traffic and automatically block potentially malicious requests.
 
-The application is built using the **Flask** framework, providing a simple web interface for easy interaction with the firewall. The WAF uses custom tokenization methods and machine learning models to detect security threats and return appropriate responses when an attack is detected.
-
 ## Features
 
 - **Real-Time Threat Detection**: The system monitors incoming HTTP requests and detects SQL Injection, XSS, and other malicious patterns in real-time.
 - **Machine Learning Integration**: Pre-trained models are used for detecting attacks based on patterns within URL paths and query parameters.
-- **Custom Tokenization**: A custom tokenizer is employed to extract features from request paths and parameters to better identify malicious activities.
-- **HTML Response on Detection**: In the event of an attack, the WAF blocks the request and returns a custom HTML page notifying the user of the threat.
 - **Extendable Framework**: The system can easily be extended to detect additional threats, such as command injection, file inclusion attacks, and more.
 
 ## Technologies Used
