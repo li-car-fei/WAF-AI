@@ -1,10 +1,10 @@
 from flask import Flask, jsonify
-from WAF import monitor_sql_injection  # Import the monitoring logic
+from WAF import WAF4Flask  # Import the monitoring logic
 
 app = Flask(__name__)
 
 # Apply the monitoring middleware
-monitor_sql_injection(app)
+WAF4Flask.rusicadeWAF(app)
 
 # Define Flask Routes
 @app.route('/')
