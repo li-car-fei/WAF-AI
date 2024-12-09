@@ -38,7 +38,7 @@ This repository contains a **Web Application Firewall (WAF)** that integrates **
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/WAF-AI.git
+   git clone https://github.com/chouaibcher/WAF-AI.git
    cd WAF-AI
 
 
