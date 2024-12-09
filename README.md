@@ -26,10 +26,7 @@ The application is built using the **Flask** framework, providing a simple web i
 
 ### **Current Threats Detected**
 
-1. **SQL Injection**: This attack occurs when attackers inject malicious SQL code into a query, often leading to data leakage or unauthorized access to the database. The WAF detects such attacks using:
-   - **Custom Tokenization**: Breaking down URLs or request parameters into tokens to detect common SQL injection patterns (e.g., `';--`, `' OR 1=1`).
-   - **Machine Learning Models**: Pre-trained models identify malicious patterns in requests and classify them as safe or dangerous.
-
+1. **SQL Injection**: This attack occurs when attackers inject malicious SQL code into a query, often leading to data leakage or unauthorized access to the database. 
 
 
 ## Getting Started
