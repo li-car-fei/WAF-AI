@@ -51,6 +51,10 @@ The application is built using the **Flask** framework, providing a simple web i
 
 ### Key Updates:
 - Added **SQL** Injection detection.
+<img width="958" alt="image" src="https://github.com/user-attachments/assets/62a4143a-33f9-4bf3-be2c-012342154828">
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/91bbe2e5-cc04-41ef-83cd-c4ec6e3de819">
+
+
   
 # Contributing
 We welcome contributions to improve this project! If you'd like to help, please refer to the  `CONTRIBUTING.md`  file for guidelines on how to contribute.
