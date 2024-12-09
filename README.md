@@ -1,7 +1,7 @@
 # WAF-AI: Web Application Firewall with Artificial Intelligence
 ## Overview
 
-This repository contains a **Web Application Firewall (WAF)** that integrates **Artificial Intelligence** to detect and mitigate security threats in real-time, with a primary focus on SQL Injection and Cross-Site Scripting (XSS) attacks. The system utilizes pre-trained models to analyze HTTP traffic and automatically block potentially malicious requests.
+This repository contains a **Web Application Firewall (WAF)** that integrates **Artificial Intelligence** to detect and mitigate security threats in real-time. The system utilizes pre-trained models to analyze HTTP traffic and automatically block potentially malicious requests.
 
 The application is built using the **Flask** framework, providing a simple web interface for easy interaction with the firewall. The WAF uses custom tokenization methods and machine learning models to detect security threats and return appropriate responses when an attack is detected.
 
