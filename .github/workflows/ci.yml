@@ -1,0 +1,64 @@
+name: CI Pipeline for WAF-AI
+
+# Déclencheurs : push sur main et création de PR
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Définition des jobs
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Cloner le dépôt
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    # 2. Configurer Python
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    # 3. Installer les dépendances
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Exécuter les tests
+    - name: Run Tests
+      run: |
+        python -m unittest discover tests
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Cloner le dépôt
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    # 2. Configurer Python
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    # 3. Installer les dépendances
+    - name: Install dependencies
+      run: |
+        pip install --upgrade build twine
+
+    # 4. Construire et publier la bibliothèque sur PyPI
+    - name: Publish to PyPI
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+        python -m build
+        python -m twine upload dist/*
