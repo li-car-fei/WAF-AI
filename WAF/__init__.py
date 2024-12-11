@@ -3,38 +3,20 @@ import joblib
 import numpy as np
 import pickle
 from abc import ABC, abstractmethod
+from TrainingModels.model import TextVectorizer, SvmClassifier
 
-
-# Custom Unpickler to load the custom tokenizer
-class CustomUnpickler(pickle.Unpickler):
-    def find_class(self, module, name):
-        if name == 'custom_tokenizer':
-            return custom_tokenizer
-        return super().find_class(module, name)
-    
-# Custom tokenization function 
-def custom_tokenizer(text):
-    return text.split()
 
 class WAF(ABC):
-    def __init__(self,model_path,vectorizer_path):
+    def __init__(self, model_path, vectorizer_path):
         # Load the saved model and vectorizer
-        self.model_path=model_path
-        self.vectorizer_path=vectorizer_path
-        try:
-            self.model = joblib.load(model_path)
-            print("Model loaded successfully.")
-        except Exception as e:
-            print(f"Error loading model: {e}")
-            self.model = None
+        self.model_path = model_path
+        self.vectorizer_path = vectorizer_path
 
-        try:
-            with open(vectorizer_path, 'rb') as f:
-                self.vectorizer = CustomUnpickler(f).load()
-            print("Vectorizer loaded successfully.")
-        except Exception as e:
-            print(f"Error loading vectorizer: {e}")
-            self.vectorizer = None
+        self.model = SvmClassifier(mode="test")
+        self.model.load(self.model_path)
+
+        self.vectorizer = TextVectorizer()
+        self.vectorizer.load(self.vectorizer_path)
 
     def preprocess_path(self, path):
         try:

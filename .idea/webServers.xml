@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f7d26ae6-c061-49f1-a28e-f45ed7b55cca" name="WAF-AI">
+        <fileTransfer accessType="SFTP" host="172.30.174.172" port="22" sshConfigId="a3492191-00a8-4948-9bab-e9f3cd34ee06" sshConfig="ljh@172.30.174.172:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

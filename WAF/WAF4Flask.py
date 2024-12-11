@@ -4,8 +4,8 @@ import os
 import json
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(current_dir, 'models', 'sqli.pkl')
-vectorizer_path = os.path.join(current_dir, 'models', 'vectorizerSqli.pkl')
+model_path = os.path.join(current_dir, 'models', 'svc.pkl')
+vectorizer_path = os.path.join(current_dir, 'models', 'svc_vc.pkl')
 blocked_ips_file = os.path.join(current_dir, 'blocked_ips.json')
 
 def load_blocked_ips():
