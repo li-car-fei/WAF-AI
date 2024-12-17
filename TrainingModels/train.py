@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
-from TrainingModels.model import TextVectorizer, SvmClassifier
+from TrainingModels.model import Word2VecVectorizer, TextVectorizer, SvmClassifier
 
 
 def read_data(parent_dir):
@@ -27,9 +27,14 @@ def train():
     df = df[df['payload'] != '']
     df = df.drop_duplicates(subset=['payload'])
 
-    # n-gram preprocessing
-    count_vectorizer = TextVectorizer()
-    X = count_vectorizer.fit(df['payload'])
+    # n-gram preprocessing 文本 -> 单向量
+    # count_vectorizer = TextVectorizer()
+    # X = count_vectorizer.fit(df['payload'])
+
+    # word2Vec preprocessing 文本 -> 向量矩阵
+    word2vec_vectorizer = Word2VecVectorizer()
+    X = word2vec_vectorizer.fit(df['payload'].tolist())
+
 
     # train/test
     y = df['is_malicious']
@@ -42,8 +47,9 @@ def train():
     svc.report(X_test, y_test)
 
     # save model params
-    count_vectorizer.save(os.path.join(parent_dir, 'WAF', 'models', 'svc_vc.pkl'))
-    svc.save(os.path.join(parent_dir, 'WAF', 'models', 'svc.pkl'))
+    # count_vectorizer.save(os.path.join(parent_dir, 'WAF', 'models', 'svc_vc.pkl'))
+    word2vec_vectorizer.save(os.path.join(parent_dir, 'WAF', 'models', 'svc_word2vec_vc.pkl'))
+    svc.save(os.path.join(parent_dir, 'WAF', 'models', 'svc_word2vec.pkl'))
 
 def test():
     sql_injections = [
@@ -68,12 +74,16 @@ def test():
     parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
     print('Current directory:', parent_dir)
 
-    count_vectorizer = TextVectorizer()
-    count_vectorizer.load(os.path.join(parent_dir, 'WAF', 'models', 'svc_vc.pkl'))
-    svc = SvmClassifier(mode="test")
-    svc.load(os.path.join(parent_dir, 'WAF', 'models', 'svc.pkl'))
+    # count_vectorizer = TextVectorizer()
+    # count_vectorizer.load(os.path.join(parent_dir, 'WAF', 'models', 'svc_vc.pkl'))
+    word2vec_vectorizer = Word2VecVectorizer()
+    word2vec_vectorizer.load(os.path.join(parent_dir, 'WAF', 'models', 'svc_word2vec_vc.pkl'))
 
-    sql_injections_vectorized = count_vectorizer.transform(sql_injections).toarray()
+    svc = SvmClassifier(mode="test")
+    svc.load(os.path.join(parent_dir, 'WAF', 'models', 'svc_word2vec.pkl'))
+
+    # sql_injections_vectorized = count_vectorizer.transform(sql_injections).toarray()
+    sql_injections_vectorized = word2vec_vectorizer.transform(sql_injections)
     predictions = svc.predict(sql_injections_vectorized)
 
     for i, sql in enumerate(sql_injections):
@@ -82,7 +92,7 @@ def test():
 
 if __name__ == "__main__":
 
-    train()
+    # train()
     test()
 
 
